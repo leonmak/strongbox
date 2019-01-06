@@ -23,12 +23,11 @@ import io.restassured.http.ContentType;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-import org.springframework.context.annotation.*;
 import org.junit.jupiter.api.parallel.Execution;
+import org.springframework.context.annotation.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.security.test.context.support.WithMockUser;
-import org.springframework.test.context.ActiveProfiles;
 import static io.restassured.module.mockmvc.RestAssuredMockMvc.given;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.startsWith;
@@ -41,7 +40,6 @@ import static org.junit.jupiter.api.parallel.ExecutionMode.CONCURRENT;
  */
 @IntegrationTest
 @Execution(CONCURRENT)
-@ActiveProfiles({"LdapAuthenticatorConfigurationControllerTest","test"})
 public class LdapAuthenticatorConfigurationControllerTest
         extends RestAssuredBaseTest
 {
@@ -105,7 +103,7 @@ public class LdapAuthenticatorConfigurationControllerTest
     @WithMockUser(authorities = "ADMIN")
     @Test
     public void shouldUpdateFullLdapConfiguration()
-        throws IOException
+            throws IOException
     {
 
         LdapConfiguration configuration = ldapAuthenticationConfigurationManager.getConfiguration();
