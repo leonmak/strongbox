@@ -320,20 +320,20 @@ public class LdapAuthenticatorConfigurationControllerTest
         form.setConfiguration(configuration);
         return form;
     }
-
+    
     @Configuration
     @Profile("LdapAuthenticatorConfigurationControllerTest")
     @Import(HazelcastConfiguration.class)
     @ImportResource("classpath:/ldapServerApplicationContext.xml")
-    public static class LdapAuthenticatorConfigurationControllerTestConfiguration
+    public static class LdapAuthenticatorConfigurationControllerTestConfiguration 
     {
-
+        
         @Primary
         @Bean
-        public HazelcastInstanceId hazelcastInstanceIdLacct() {
+        public HazelcastInstanceId hazelcastInstanceId() {
             return new HazelcastInstanceId("LdapAuthenticatorConfigurationControllerTest-hazelcast-instance");
         }
-
+        
     }
 
 }
