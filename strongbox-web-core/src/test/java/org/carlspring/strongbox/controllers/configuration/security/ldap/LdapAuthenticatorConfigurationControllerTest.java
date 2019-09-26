@@ -1,13 +1,9 @@
 package org.carlspring.strongbox.controllers.configuration.security.ldap;
 
 import org.carlspring.strongbox.authentication.ConfigurableProviderManager;
-import org.carlspring.strongbox.authentication.external.ldap.LdapAuthenticationConfigurationManager;
-import org.carlspring.strongbox.authentication.external.ldap.LdapConfiguration;
-import org.carlspring.strongbox.authentication.registry.AuthenticationResourceManager;
-import org.carlspring.strongbox.authentication.api.AuthenticationItem;
-import org.carlspring.strongbox.authentication.api.AuthenticationItems;
 import org.carlspring.strongbox.authentication.api.ldap.LdapAuthenticationConfigurationManager;
 import org.carlspring.strongbox.authentication.api.ldap.LdapConfiguration;
+import org.carlspring.strongbox.authentication.registry.AuthenticationResourceManager;
 import org.carlspring.strongbox.authentication.support.ExternalRoleMapping;
 import org.carlspring.strongbox.config.IntegrationTest;
 import org.carlspring.strongbox.config.hazelcast.HazelcastConfiguration;
@@ -27,7 +23,12 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.parallel.Execution;
-import org.springframework.context.annotation.*;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
+import org.springframework.context.annotation.ImportResource;
+import org.springframework.context.annotation.Primary;
+import org.springframework.context.annotation.Profile;
 import org.springframework.core.io.DefaultResourceLoader;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpStatus;
